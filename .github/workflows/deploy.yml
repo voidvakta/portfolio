@@ -32,9 +32,9 @@ jobs:
       - name: Deploy to EC2
         uses: appleboy/ssh-action@v0.1.7
         with:
-          host: ${{secrets. 16.171.20.83}}
+          host: ${{secrets.EC2_HOST}}
           username: ubuntu
-          key: ${{secrets. ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICn/bUKbKLgP1eAgYjMEJMdMq58ijdS9+i4HckHw4+CY ubuntu@ip-172-31-33-254}}
+          key: ${{secrets.EC2_SSH_KEY}}
           script: |
             cd /var/www/my-app
             git pull origin main
