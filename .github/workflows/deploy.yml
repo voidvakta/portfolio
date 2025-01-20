@@ -1,0 +1,42 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Check out the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Set up Docker
+      - name: Set up Docker
+        uses: docker/setup-buildx-action@v2
+
+      # Build and Test (Optional)
+      - name: Build the app
+        run: |
+          docker build -t my-app .
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      # Deploy via SSH to EC2
+      - name: Deploy to EC2
+        uses: appleboy/ssh-action@v0.1.7
+        with:
+          host: ${{secrets. 16.171.20.83}}
+          username: ubuntu
+          key: ${{secrets. ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICn/bUKbKLgP1eAgYjMEJMdMq58ijdS9+i4HckHw4+CY ubuntu@ip-172-31-33-254}}
+          script: |
+            cd /var/www/my-app
+            git pull origin main
+            docker-compose down
+            docker-compose up -d
