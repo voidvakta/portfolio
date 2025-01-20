@@ -36,7 +36,7 @@ jobs:
           username: ubuntu
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            cd /var/www/my-app
+            cd /var/www/html/portfolio
             git pull origin main
             docker-compose down
             docker-compose up -d
