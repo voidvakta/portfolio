@@ -21,7 +21,8 @@ jobs:
       # Build and Test (Optional)
       - name: Build the app
         run: |
-          docker build -t my-app .
+          ddocker build -t my-static-website-apache .
+
 
   deploy:
     needs: build
