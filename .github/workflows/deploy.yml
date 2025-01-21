@@ -14,15 +14,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Set up Docker
-      - name: Set up Docker
-        uses: docker/setup-buildx-action@v2
-
-      # Build and Test (Optional)
-      - name: Build the app
-        run: |
-          docker build -t my-static-website-apache .
-
 
   deploy:
     needs: build
@@ -38,6 +29,4 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
             cd /var/www/html/portfolio
-            sudo git pull origin main
-            sudo docker-compose down
-            sudo docker-compose up -d -y
+            git pull origin main
