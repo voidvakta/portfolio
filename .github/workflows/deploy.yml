@@ -28,5 +28,5 @@ jobs:
           username: ubuntu
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            cd /var/www/html/portfolio
+            cd /var/www/html/
             sudo git pull origin main
