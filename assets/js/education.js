@@ -2,71 +2,42 @@ AOS.init();
 
 // MOOCs Cards
 
-const moocs = document.querySelector(".moocs");
-const moocscards = [
-  {
-    title: "Data Science",
-    cardImage: "assets/images/education-page/coursera2.svg",
-    moocLink: "https://www.coursera.org/browse/data-science",
-  },
-  {
-    title: "Cryptography",
-    cardImage: "assets/images/education-page/udemy.svg",
-    moocLink: "https://www.udemy.com/course/cryptography-for-beginners/",
-  },
-  {
-    title: "Machine Learning",
-    cardImage: "assets/images/education-page/coursera2.svg",
-    moocLink: "https://www.coursera.org/learn/machine-learning",
-  },
-  {
-    title: "Introduction to HTML 5",
-    cardImage: "assets/images/education-page/udacity.svg",
-    moocLink: "https://www.udacity.com/course/intro-to-html-and-css--ud001",
-  },
-  {
-    title: "Introduction to CSS 3",
-    cardImage: "assets/images/education-page/udacity.svg",
-    moocLink: "https://www.udacity.com/course/intro-to-html-and-css--ud001",
-  },
-  {
-    title: "Javascript",
-    cardImage: "assets/images/education-page/udacity.svg",
-    moocLink: "https://www.udacity.com/course/intro-to-javascript--ud803",
-  },
-  {
-    title: "Bootstrap 4",
-    cardImage: "assets/images/education-page/udemy.svg",
-    moocLink: "https://www.udemy.com/course/bootstrap-4-tutorials/",
-  },
-  {
-    title: "Intro to React",
-    cardImage: "assets/images/education-page/edx.svg",
-    moocLink: "https://www.edx.org/learn/reactjs",
-  },
-  {
-    title: "Intro to React Native",
-    cardImage: "assets/images/education-page/coursera2.svg",
-    moocLink:
-      "https://www.coursera.org/lecture/react-native/introduction-to-react-native-Eax0D",
-  },
-  {
-    title: "NodeJS, Express and MongoDB",
-    cardImage: "assets/images/education-page/coursera2.svg",
-    moocLink: "https://www.coursera.org/learn/server-side-nodejs",
-  },
-  {
-    title: "XML-AJAX",
-    cardImage: "assets/images/education-page/udemy.svg",
-    moocLink: "https://www.udemy.com/course/xml-from-beginner-to-expert/",
-  },
-  {
-    title: "Data Structures & Algorithms",
-    cardImage: "assets/images/education-page/udacity.svg",
-    moocLink:
-      "https://www.udacity.com/course/data-structures-and-algorithms-nanodegree--nd256",
-  },
+/* =========  Credly badge carousel / grid  ========= */
+
+// 1️⃣  Put **your** badge IDs here
+//     ▸ In Credly, open a badge ➜ Share ➜ Embed ➜ copy the
+//       value of data-share-badge-id.
+const credlyBadges = [
+  "7e9b34cc-9575-4ab6-adb3-ab3ecc16ac57",
+  "8e59e4e6-a056-47fa-9d8e-e947737284ff",
+  "be3144b7-c669-41f8-a989-45e426537a2d",
+  "1c8f9c71-c460-4418-a5e9-61ab2f769398",
+  "e9bd517e-13fd-420b-955e-80c64bd9a572",
+  "1763164b-3092-4a7c-b5cc-7105084ef1eb",
+  "f90a6510-2f0b-4749-ad40-1700999f5838",
+  "becbf07f-e790-4ff9-87ed-78cd333f3727",
+  // …add as many as you like
 ];
+
+const container = document.querySelector(".credly-badges");
+
+// 2️⃣  Build the grid
+container.innerHTML = credlyBadges
+  .map(
+    id => `
+      <div class="col-6 col-md-4 col-lg-3 mb-4">
+        <div data-iframe-width="150"
+             data-iframe-height="270"
+             data-share-badge-id="${id}"
+             data-share-badge-host="https://www.credly.com">
+        </div>
+      </div>`
+  )
+  .join("");
+
+// 3️⃣  Credly’s embed.js (already included above) automatically
+//     replaces each <div …> with a live badge iframe.
+
 
 const experience = [
   {
