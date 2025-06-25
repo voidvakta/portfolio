@@ -6,10 +6,6 @@ const experiencecards = document.querySelector(".experience-cards");
 const exp = [
   {title: "Performance Growth Marketing Executive (Part-Time)",
     cardImage: "assets/images/experience-page/easy.png",
-    imageStyle: {
-      width: "200px", // Change to desired width
-      height: "150px", // Change to desired height
-    },
     place: "EasyFiling",
     time: "(Feb 2025 - Present)",
     desp:  "<li>Developing marketing strategies for EasyFiling’s legal and tax services targeted at small businesses and startups.</li><li>Running performance marketing campaigns and optimizing lead generation funnels for higher conversion rates.</li><li>Collaborating with the product and operations team to align messaging with customer needs and pain points.</li>",
